@@ -2,7 +2,7 @@ package marcio.spring_components_and_beans.service;
 
 import org.springframework.stereotype.Component;
 
-
+@Component
 public class ViaCepResponse {
     private String cep;
     private String logradouro;
