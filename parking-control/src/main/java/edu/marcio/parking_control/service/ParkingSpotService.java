@@ -1,5 +1,9 @@
 package edu.marcio.parking_control.service;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,17 +25,31 @@ public class ParkingSpotService {
     }
 
     public boolean existsByLicensePlateNumber(String licensePlateNumber) {
-        // TODO Auto-generated method stub
+        
         return parkingSpotRepository.existsByLicensePlateNumber(licensePlateNumber);
     }
 
     public boolean existsByParkingSpotNumber(String parkingSpotNumber) {
-        // TODO Auto-generated method stub
+        
         return parkingSpotRepository.existsByParkingSpotNumber(parkingSpotNumber);
     }
 
     public boolean existsByApartmentAndBlock(String apartment, String block) {
-        // TODO Auto-generated method stub
+        
        return parkingSpotRepository.existsByApartmentAndBlock(apartment, block);
     }
+
+    public List<ParkingSpotModel> findAll(){
+        return parkingSpotRepository.findAll();
+    }
+
+    public Optional<ParkingSpotModel> findById(UUID id){
+        return parkingSpotRepository.findById(id);
+    }
+
+    @Transactional
+    public void deleteParkingSpot(UUID id){
+        parkingSpotRepository.deleteById(id);
+    }
 }
+
