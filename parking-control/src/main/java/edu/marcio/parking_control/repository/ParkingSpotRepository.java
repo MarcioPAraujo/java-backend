@@ -9,5 +9,11 @@ import edu.marcio.parking_control.model.ParkingSpotModel;
 
 @Repository
 public interface ParkingSpotRepository extends JpaRepository<ParkingSpotModel,UUID>{
+
+    boolean existsByLicensePlateNumber(String licensePlateNumber);
+
+    boolean existsByParkingSpotNumber (String ParkingSpotNumber);
+
+    public boolean existsByApartmentAndBlock(String apartment, String block);
     
 }
